@@ -24,7 +24,6 @@ func main() {
 func handleAny(c echo.Context) error {
 	targetPostfixURL := c.Request().URL.String()
 	targetURL := config.AppConfig.ProxyTargetUrl + targetPostfixURL
-
 	req, err := http.NewRequest(c.Request().Method, targetURL, c.Request().Body)
 	if err != nil {
 		return c.String(http.StatusBadRequest, "Bad Request: "+err.Error())
